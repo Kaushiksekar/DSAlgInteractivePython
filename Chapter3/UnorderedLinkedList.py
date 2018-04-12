@@ -6,7 +6,7 @@ class UnorderedLinkedList:
         self.head = None
 
     def isEmpty(self):
-        return self.head == None
+        return self.head is None
 
     def add(self, data):
         temp = Node(data)
@@ -16,7 +16,7 @@ class UnorderedLinkedList:
     def size(self):
         count = 0
         currentNode = self.head
-        while currentNode != None:
+        while currentNode is not None:
             currentNode = currentNode.getNext()
             count += 1
 
@@ -26,7 +26,7 @@ class UnorderedLinkedList:
         current = self.head
         found = False
 
-        while current != None:
+        while current is not None:
             if current.getData() == data:
                 found = True
                 break
@@ -40,17 +40,17 @@ class UnorderedLinkedList:
         previous = None
         current = self.head
 
-        while current != None and not found:
+        while current is not None and not found:
             if current.getData() == data:
                 found = True
             else:
                 previous = current
                 current = current.getNext()
 
-        if previous == None:
+        if previous is None:
             self.head = current.getNext()
             return str(data)+" is removed from the list"
-        elif previous != None and found:
+        elif previous is not None and found:
             previous.setNext(current.getNext())
             return str(data)+" is removed from the list"
         else:
